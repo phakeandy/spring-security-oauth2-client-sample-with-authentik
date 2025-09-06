@@ -18,6 +18,8 @@ services:
     restart: unless-stopped
     volumes:
     - database:/var/lib/postgresql/data
+    ports:
+    - ${POSTGRESQL_PORT:-5432}:5432
   redis:
     command: --save 60 1 --loglevel warning
     healthcheck:
