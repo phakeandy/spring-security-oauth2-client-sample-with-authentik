@@ -34,6 +34,8 @@ services:
     restart: unless-stopped
     volumes:
       - redis:/data
+    ports:
+      - ${REDIS_PORT:-6379}:6379
   server:
     command: server
     depends_on:
